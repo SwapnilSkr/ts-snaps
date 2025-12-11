@@ -1,10 +1,12 @@
-type CustomString  = string;
+//Declaration
+type CustomString = string;
 type CustomNumber = number;
 type CustomBoolean = boolean;
 
 type ID = CustomString | CustomNumber;
 
 interface Person {
+  // Using type aliases as annotations
   id: ID;
   name: CustomString;
   isActive: CustomBoolean;

@@ -7,7 +7,7 @@ type Caterer = {
 
 // Declare a Seats type
 type Seats = {
-  [keyof: string]: string;
+  [key : string]: string;
 };
 
 // Declare a Airplane Type

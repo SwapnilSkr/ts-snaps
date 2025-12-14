@@ -23,7 +23,9 @@ interface Post {
 }
 
 async function fetchPost() {
-  const post = await fetchData<Post>("https://jsonplaceholder.typicode.com/posts/1");
+  const post = await fetchData<Post>(
+    "https://jsonplaceholder.typicode.com/posts/1"
+  );
   console.log(post); // Output: { userId: 1, id: 1, title: "...", body: "..." }
 }
 

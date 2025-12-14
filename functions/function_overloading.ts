@@ -45,3 +45,30 @@ const reserve: Reserve = (
 
 console.log(reserve(new Date(), new Date(), "New York", "Washington"));
 console.log(reserve(new Date(), "New York", "Washington"));
+
+const namedReserve: Reserve = function namedReserve(
+  departureDate,
+  returnDateOrDepartureFrom,
+  departureFromOrDestination,
+  // need to type it otherwise TS will complain that destination is unknown
+  destination?: string
+) {
+  if (returnDateOrDepartureFrom instanceof Date && destination) {
+    return {
+      departureDate,
+      returnDate: returnDateOrDepartureFrom,
+      departureFrom: departureFromOrDestination,
+      destination,
+    };
+  } else if (typeof returnDateOrDepartureFrom === "string" && !destination) {
+    return {
+      departureDate,
+      departureFrom: returnDateOrDepartureFrom,
+      destination: departureFromOrDestination,
+    };
+  }
+  throw new Error("Invalid arguments");
+};
+
+console.log(namedReserve(new Date(), new Date(), "New York", "Washington"));
+console.log(namedReserve(new Date(), "New York", "Washington"));

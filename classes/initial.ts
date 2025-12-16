@@ -45,10 +45,23 @@ class User {
   }
 }
 
-class Admin extends User {}
+class Admin extends User {
+  constructor(
+    id: number,
+    firstName: string,
+    email: string,
+    salary: number,
+    lastName: string,
+    public isActive: boolean
+  ) {
+    super(id, firstName, email, salary, lastName);
+  }
+}
 
 const user1 = new User(1, "Swapnil", "swapnilmkab@gmail.com", 70000, "Sarkar");
 user1.setSalary = 120000;
+
+const admin1 = new Admin(2, "Aadil", "aadil@hamza.com", 400000, "Rashid", true);
 
 //Not possible
 //user1.email = "some value"
@@ -60,6 +73,9 @@ export function logUserDetails() {
   console.log("user 1: ", user1);
   console.log("Full Name: ", fullName);
   console.log("Salary Details: ", salaryOfUser);
+  console.log("*********************************");
+  console.log("admin 1: ", admin1);
   //Property 'id' is protected and only accessible within class 'User' and its subclasses.
   //console.log(user1.id)
+  //console.log(admin1.id)
 }

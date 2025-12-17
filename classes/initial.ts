@@ -26,11 +26,11 @@ class User {
     public firstName: string,
     public readonly email: string,
     protected salary: number,
-    public lastName: string
+    public lastName?: string
   ) {}
 
   public getFullName(): string {
-    return `${this.firstName} ${this.lastName}`;
+    return `${this.firstName} ${this.lastName ? this.lastName : ""}`;
   }
 
   //getters
@@ -51,8 +51,8 @@ class Admin extends User {
     firstName: string,
     email: string,
     salary: number,
-    lastName: string,
-    public isActive: boolean
+    public isActive: boolean,
+    lastName?: string
   ) {
     super(id, firstName, email, salary, lastName);
   }
@@ -61,7 +61,7 @@ class Admin extends User {
 const user1 = new User(1, "Swapnil", "swapnilmkab@gmail.com", 70000, "Sarkar");
 user1.setSalary = 120000;
 
-const admin1 = new Admin(2, "Aadil", "aadil@hamza.com", 400000, "Rashid", true);
+const admin1 = new Admin(2, "Aadil", "aadil@hamza.com", 400000, true, "Rashid");
 
 //Not possible
 //user1.email = "some value"
